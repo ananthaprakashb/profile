@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ananthaprakashb.github.io/profile/sitemap.xml
