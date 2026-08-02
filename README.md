@@ -10,6 +10,17 @@ A fast, responsive, and accessible personal site for Ananthaprakash Nithiyananth
 - SEO metadata, Open Graph sharing tags, Person structured data, sitemap, and robots file.
 - A GitHub Pages deployment workflow with no framework or dependency overhead.
 - Accessibility support for keyboard navigation, reduced motion, focus states, and semantic landmarks.
+- An official LinkedIn public-profile badge that refreshes from LinkedIn when the page loads.
+
+## LinkedIn live view
+
+The site uses LinkedIn’s official public-profile badge for a live LinkedIn panel. It does not scrape LinkedIn or store
+LinkedIn credentials. Public profile changes can appear in the badge after a page refresh, subject to LinkedIn’s public
+visibility settings and caching.
+
+The badge does not rewrite the handcrafted About, Journey, Work, Research, or Writing content. Full automated access to
+LinkedIn profile fields requires LinkedIn approval for its restricted Profile API and a secure server-side OAuth
+integration; GitHub Pages alone cannot safely hold those credentials.
 
 ## Run locally
 

@@ -175,6 +175,16 @@ html[data-theme="light"] .theme-toggle .moon { opacity: 1; transform: none; }
 .principle h3 { font-size: 1rem; }
 .principle p { color: var(--muted); font-size: .88rem; }
 
+.linkedin-sync-card { display: grid; overflow: hidden; padding: clamp(26px, 5vw, 54px); margin-top: 72px; align-items: center; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(135deg, color-mix(in srgb, #0a66c2 14%, var(--panel-solid)), var(--panel)); grid-template-columns: 1.05fr .95fr; gap: 52px; }
+.linkedin-sync-copy h3 { max-width: 580px; margin: 0 0 16px; font-size: clamp(2rem, 4vw, 3.65rem); letter-spacing: -.055em; line-height: 1.02; }
+.linkedin-sync-copy > p:not(.sync-status) { max-width: 630px; margin: 0; color: var(--muted); }
+.sync-status { display: inline-flex; margin: 0 0 20px; align-items: center; gap: 9px; color: #68aef1; font-size: .7rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+.sync-status span { width: 8px; height: 8px; border-radius: 50%; background: #68aef1; box-shadow: 0 0 14px #68aef1; }
+.linkedin-badge-stage { display: grid; min-height: 370px; padding: 26px; place-items: center; border: 1px solid rgba(255,255,255,.12); border-radius: 22px; background: #07131f; box-shadow: inset 0 1px rgba(255,255,255,.06); }
+.linkedin-badge-stage .badge-base { min-height: 290px; }
+.linkedin-badge-stage > p { max-width: 340px; margin: 12px 0 0; color: #91a3ad; font-size: .68rem; text-align: center; }
+.linkedin-badge-stage .LI-simple-link { color: #73e7d1; font-size: .85rem; font-weight: 800; }
+
 .timeline { position: relative; }
 .timeline::before { position: absolute; top: 0; bottom: 0; left: 85px; width: 1px; content: ""; background: var(--line); }
 .timeline-item { position: relative; display: grid; min-height: 176px; padding: 34px 0; border-top: 1px solid var(--line); grid-template-columns: 170px 1fr 290px; gap: 36px; }
@@ -286,6 +296,7 @@ html[data-theme="light"] .writing-card { background: rgba(255,255,255,.42); }
   .floating-build { left: 5%; }
   .floating-craft { right: 4%; }
   .about-grid { grid-template-columns: 1fr; gap: 60px; }
+  .linkedin-sync-card { grid-template-columns: 1fr; }
   .timeline-item { grid-template-columns: 130px 1fr; }
   .timeline::before { left: 64px; }
   .timeline-marker::after { left: 60px; }
@@ -326,6 +337,8 @@ html[data-theme="light"] .writing-card { background: rgba(255,255,255,.42); }
   .section-heading-row { align-items: flex-start; flex-direction: column; gap: 25px; }
   .principle { grid-template-columns: 40px 1fr; }
   .principle p { grid-column: 2; }
+  .linkedin-sync-card { padding: 24px; margin-top: 52px; gap: 32px; }
+  .linkedin-badge-stage { min-height: 340px; padding-inline: 12px; }
   .timeline::before { left: 5px; }
   .timeline-item { padding-left: 27px; grid-template-columns: 1fr; gap: 10px; }
   .timeline-marker::after { top: 5px; left: -27px; border-color: var(--canvas-soft); }
