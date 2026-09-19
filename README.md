@@ -11,6 +11,8 @@ A fast, responsive, and accessible personal site for Ananthaprakash Nithiyananth
 - A GitHub Pages deployment workflow with no framework or dependency overhead.
 - Accessibility support for keyboard navigation, reduced motion, focus states, and semantic landmarks.
 - An official LinkedIn public-profile badge that refreshes from LinkedIn when the page loads.
+- A current-work portfolio featuring Impact Commons, Semantic Saga, DrawDiagrams, Cristóvão, mcp-gate, and Safe Payments.
+- An Engineering Stepstone section with its live projects and a Blogger feed that surfaces the latest published article.
 
 ## LinkedIn live view
 
@@ -21,6 +23,16 @@ visibility settings and caching.
 The badge does not rewrite the handcrafted About, Journey, Work, Research, or Writing content. Full automated access to
 LinkedIn profile fields requires LinkedIn approval for its restricted Profile API and a secure server-side OAuth
 integration; GitHub Pages alone cannot safely hold those credentials.
+
+## Engineering Stepstone
+
+The profile treats Engineering Stepstone as the public bridge between working software and the lessons behind it:
+
+- [Impact Commons](https://research.engineeringstepstone.com/) — profile-guided opportunities, peer-review pathways, research tools, and evidence.
+- [DrawDiagrams](https://diagrams.engineeringstepstone.com/) — an accessible, browser-first Mermaid and infographic studio.
+- [Engineering Stepstone](https://www.engineeringstepstone.com/) — articles on payments, reliability, secure agentic systems, visual thinking, and production engineering.
+
+The page includes verified static article fallbacks for resilience, then loads the five newest Blogger entries through the public JSONP feed. The newest post becomes the featured article and the following four populate the recent-writing list. No blog credentials are stored in the site.
 
 ## Run locally
 
@@ -49,9 +61,9 @@ The expected project Pages URL is:
 
 ## Product roadmap
 
-This first version establishes a strong public profile and connection path. Future iterations can add:
+The site now establishes a current public profile, living Engineering Stepstone feed, and connection path. Future iterations can add:
 
-- A data file or CMS for projects, writing, talks, and publications.
+- A data file or CMS for projects, talks, and publications.
 - A moderated “people and ideas” directory.
 - Topic-based introductions and collaboration requests.
 - Newsletter or update subscriptions with explicit consent.

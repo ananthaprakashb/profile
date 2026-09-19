@@ -94,6 +94,103 @@ filters.forEach((filter) => {
   });
 });
 
+const blogFeed = document.querySelector("[data-blog-feed]");
+const blogStatus = document.querySelector("[data-blog-status]");
+
+function plainText(html = "") {
+  const reader = document.createElement("div");
+  reader.innerHTML = html.replace(/<\s*\/?(?:p|div|br|li|h[1-6])\b[^>]*>/gi, " ");
+  return (reader.textContent || "").replace(/\s+/g, " ").trim();
+}
+
+function shorten(text, length = 145) {
+  if (text.length <= length) return text;
+  return `${text.slice(0, length).replace(/\s+\S*$/, "")}…`;
+}
+
+function blogLink(entry) {
+  const candidate = entry?.link?.find((link) => link.rel === "alternate")?.href;
+  if (!candidate) return null;
+  try {
+    const url = new URL(candidate);
+    const allowedHosts = new Set(["engineeringstepstone.com", "www.engineeringstepstone.com"]);
+    return url.protocol === "https:" && allowedHosts.has(url.hostname) ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+function displayDate(value, short = false) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "Recent";
+  return new Intl.DateTimeFormat("en-US", short
+    ? { month: "short", day: "2-digit" }
+    : { month: "long", day: "numeric", year: "numeric" }
+  ).format(date);
+}
+
+function articleRow(entry) {
+  const title = entry?.title?.$t?.trim();
+  const href = blogLink(entry);
+  if (!title || !href) return null;
+
+  const row = document.createElement("article");
+  row.className = "article-row";
+
+  const time = document.createElement("time");
+  time.dateTime = entry.published?.$t || "";
+  time.textContent = displayDate(entry.published?.$t, true);
+
+  const copy = document.createElement("div");
+  const heading = document.createElement("h4");
+  heading.textContent = title;
+  const summary = document.createElement("p");
+  summary.textContent = shorten(plainText(entry.summary?.$t || entry.content?.$t || "Read the latest engineering note."));
+  copy.append(heading, summary);
+
+  const link = document.createElement("a");
+  link.href = href;
+  link.target = "_blank";
+  link.rel = "noreferrer";
+  link.setAttribute("aria-label", `Read ${title}`);
+  link.textContent = "↗";
+  row.append(time, copy, link);
+  return row;
+}
+
+window.renderEngineeringStepstoneFeed = (payload) => {
+  const entries = payload?.feed?.entry || [];
+  if (!entries.length) return;
+
+  const latest = entries[0];
+  const latestTitle = latest?.title?.$t?.trim();
+  const latestUrl = blogLink(latest);
+  const latestSummary = plainText(latest?.summary?.$t || latest?.content?.$t || "");
+
+  if (latestTitle) document.querySelector("[data-blog-latest-title]").textContent = latestTitle;
+  if (latestSummary) document.querySelector("[data-blog-latest-summary]").textContent = shorten(latestSummary, 420);
+  if (latestUrl) document.querySelector("[data-blog-latest-url]").href = latestUrl;
+  const latestDate = document.querySelector("[data-blog-latest-date]");
+  if (latestDate && latest.published?.$t) {
+    latestDate.dateTime = latest.published.$t;
+    latestDate.textContent = displayDate(latest.published.$t);
+  }
+
+  const rows = entries.slice(1, 5).map(articleRow).filter(Boolean);
+  if (blogFeed && rows.length) blogFeed.replaceChildren(...rows);
+  if (blogStatus) blogStatus.lastChild.textContent = " Live blog";
+};
+
+if (blogFeed) {
+  const feedScript = document.createElement("script");
+  feedScript.async = true;
+  feedScript.src = "https://www.engineeringstepstone.com/feeds/posts/default?alt=json-in-script&max-results=5&callback=renderEngineeringStepstoneFeed";
+  feedScript.addEventListener("error", () => {
+    if (blogStatus) blogStatus.lastChild.textContent = " Published highlights";
+  });
+  document.head.append(feedScript);
+}
+
 const copyButton = document.querySelector(".copy-email");
 copyButton?.addEventListener("click", async () => {
   const original = copyButton.textContent;
