@@ -99,7 +99,7 @@ const blogStatus = document.querySelector("[data-blog-status]");
 
 function plainText(html = "") {
   const reader = document.createElement("div");
-  reader.innerHTML = html;
+  reader.innerHTML = html.replace(/<\s*\/?(?:p|div|br|li|h[1-6])\b[^>]*>/gi, " ");
   return (reader.textContent || "").replace(/\s+/g, " ").trim();
 }
 
