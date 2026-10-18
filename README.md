@@ -11,7 +11,9 @@ A fast, responsive, and accessible personal site for Ananthaprakash Nithiyananth
 - A GitHub Pages deployment workflow with no framework or dependency overhead.
 - Accessibility support for keyboard navigation, reduced motion, focus states, and semantic landmarks.
 - An official LinkedIn public-profile badge that refreshes from LinkedIn when the page loads.
-- A current-work portfolio featuring Impact Commons, Semantic Saga, DrawDiagrams, Cristóvão, mcp-gate, and Safe Payments.
+- Professional recognition for IEEE Senior Member elevation in September 2026.
+- A current-work portfolio featuring Impact Commons, Semantic Saga, DrawDiagrams, Cristóvão, mcp-gate, Safe Payments, and ShareCapsule Invite.
+- A writing shelf linking to original English and Tamil serial e-books published through ShareCapsule Readers.
 - An Engineering Stepstone section with its live projects and a Blogger feed that surfaces the latest published article.
 
 ## LinkedIn live view
