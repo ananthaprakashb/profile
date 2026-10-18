@@ -224,6 +224,13 @@ html[data-theme="light"] .theme-toggle .moon { opacity: 1; transform: none; }
 .saga-flow span { padding: 16px 10px; border: 1px solid rgba(115,231,209,.38); border-radius: 12px; background: rgba(7,19,31,.82); color: #e9fffa; font-size: .7rem; font-weight: 850; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
 .saga-flow i { color: var(--teal); font-style: normal; }
 .saga-flow strong { padding: 11px 14px; margin-top: 22px; border: 1px solid rgba(255,189,102,.34); border-radius: 999px; grid-column: 2 / 5; color: var(--amber); font-size: .66rem; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
+.visual-invite { background: radial-gradient(circle at 78% 18%, rgba(255,189,102,.33), transparent 28%), linear-gradient(145deg, #40245f, #121829); }
+.visual-invite::before { position: absolute; inset: 24px; content: ""; border: 1px solid rgba(255,255,255,.12); border-radius: 22px; background-image: radial-gradient(circle at 18% 22%, rgba(255,255,255,.08) 0 2px, transparent 3px), radial-gradient(circle at 78% 72%, rgba(255,255,255,.08) 0 2px, transparent 3px); background-size: 44px 44px, 55px 55px; }
+.invite-preview { position: relative; z-index: 2; display: flex; width: min(72%, 360px); min-height: 230px; padding: 38px 30px; align-items: center; justify-content: center; flex-direction: column; border: 1px solid rgba(255,255,255,.22); border-radius: 24px; background: linear-gradient(155deg, rgba(255,255,255,.2), rgba(255,255,255,.06)); box-shadow: 0 24px 70px rgba(0,0,0,.28); color: #fff7e8; text-align: center; transform: rotate(-2deg); backdrop-filter: blur(12px); }
+.invite-preview span { color: #ffd18b; font-size: .64rem; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+.invite-preview strong { max-width: 280px; margin: 20px 0; font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 3.1rem); letter-spacing: -.045em; line-height: 1; }
+.invite-preview small { color: rgba(255,255,255,.72); font-size: .68rem; font-weight: 750; }
+.invite-channels { position: absolute; right: 28px; bottom: 24px; z-index: 3; padding: 9px 13px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; background: rgba(8,14,27,.68); color: rgba(255,255,255,.72); font-size: .58rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
 .project-copy { display: flex; align-self: end; flex-direction: column; }
 .project-labels { display: flex; margin-bottom: 20px; gap: 8px; }
 .project-labels span { padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--teal); font-size: .62rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
@@ -278,7 +285,7 @@ html[data-theme="light"] .stepstone-projects { background: rgba(255,255,255,.35)
 .stepstone-projects strong { margin-top: 28px; font-size: 1.35rem; letter-spacing: -.03em; }
 .stepstone-projects p { margin: 8px 0 22px; color: var(--muted); font-size: .8rem; }
 .stepstone-projects i { margin-top: auto; color: var(--teal); font-size: .72rem; font-style: normal; font-weight: 850; }
-.writing-shelf { position: relative; display: grid; margin-top: 20px; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.writing-shelf { position: relative; display: grid; margin-top: 20px; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .writing-card { display: flex; min-height: 170px; padding: 25px; align-items: center; justify-content: space-between; border: 1px solid rgba(210,240,233,.18); border-radius: 22px; background: rgba(7,19,31,.26); transition: transform 180ms ease, background 180ms ease; }
 html[data-theme="light"] .writing-card { background: rgba(255,255,255,.42); }
 .writing-card:hover { transform: translateX(-5px); background: rgba(115,231,209,.08); }
@@ -286,6 +293,9 @@ html[data-theme="light"] .writing-card { background: rgba(255,255,255,.42); }
 .writing-card p:not(.card-eyebrow) { margin: 0; color: var(--muted); font-size: .82rem; }
 .writing-card .card-eyebrow { margin-bottom: 7px; }
 .writing-card > a { display: grid; width: 44px; height: 44px; flex: 0 0 auto; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--teal); font-weight: 900; }
+.writing-card-books { align-items: flex-start; }
+.writing-card-links { display: flex; margin-top: 18px; flex-wrap: wrap; gap: 8px 15px; }
+.writing-card-links a { color: var(--teal); font-size: .7rem; font-weight: 850; }
 
 .connect-card { position: relative; overflow: hidden; padding: clamp(40px, 8vw, 94px); border-radius: 40px; background: var(--teal); color: #061b20; }
 .connect-card .kicker { color: #0e5d56; }
